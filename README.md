@@ -20,11 +20,21 @@
 Link:
 https://lucid.app/lucidchart/ea02bd3d-c8e0-4026-8497-5b377b4eb6fd/edit?viewport_loc=354%2C782%2C3882%2C2089%2CHWEp-vi-RSFO&invitationId=inv_7ed6851d-aafa-4f09-bf35-9f2f46e8d252
 
-Our class diagram uses the strategy pattern for each piece's moves. When a piece moves, the from square will change to empty strategy, and the to square will get the strategy that the previous square had.
+- Game
+> Is responsible for tracking the board state as well as validating if a move is legal and if so updating the board. Also tracks whose turn it is. The board state is composed of a 2D array of squares.
 
-The class diagram uses the abstract factory pattern to draw black pieces and white pieces differently. It interacts with each square; the squares draw their own color and the piece that is on them. 
+- Square
+> Is responsible for tracking valid move squares and storing which piece is on the square. 
 
- 
+- Abstract Piece
+> Abstract implementation of piece strategy. Piece checks for valid moves for said piece.
+
+- Concrete Pieces
+> Each piece implements its oen move and capture strategies, Pawn also implementes a unique promote function for when it reaches the end of the board.
+
+- PieceFactories
+> Creates the pieces based on file input gathered in Game.
+
  ## Screenshots
  https://youtu.be/e1k1t8uioH0
  
